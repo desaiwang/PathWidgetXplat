@@ -188,7 +188,6 @@ private fun TrainBox(trainData: AppUiTrainData, station: Station, timeDisplay: T
             timeDisplay = timeDisplay,
             textStyle = MaterialTheme.typography.bodyMedium,
             textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            fullWidth = false,
         )
     }
 }
