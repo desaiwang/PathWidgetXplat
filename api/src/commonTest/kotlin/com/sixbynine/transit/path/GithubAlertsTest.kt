@@ -1,6 +1,12 @@
 package com.desaiwang.transit.path
 
+
 import com.desaiwang.transit.path.api.Stations.FourteenthStreet
+import com.desaiwang.transit.path.api.Stations.JournalSquare
+import com.desaiwang.transit.path.api.Stations.ExchangePlace
+import com.desaiwang.transit.path.api.Stations.WorldTradeCenter
+import com.desaiwang.transit.path.api.Stations.Newark
+import com.desaiwang.transit.path.api.Stations.Harrison
 import com.desaiwang.transit.path.api.Stations.GroveStreet
 import com.desaiwang.transit.path.api.Stations.NinthStreet
 import com.desaiwang.transit.path.api.Stations.TwentyThirdStreet
@@ -26,6 +32,7 @@ import kotlinx.datetime.Month.DECEMBER
 import kotlinx.datetime.Month.FEBRUARY
 import kotlinx.datetime.Month.JULY
 import kotlinx.datetime.Month.JUNE
+import kotlinx.datetime.Month.OCTOBER
 import kotlinx.serialization.encodeToString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -38,7 +45,10 @@ class GithubAlertsTest {
         val alerts = GithubAlerts(
             GeneralOvernightCleaning,
             FourteenthStreetOvernight,
-            EasterWeekendOvernightCleaning,
+            ConrailDemolition1,
+            ConrailDemolition2,
+            ConrailDemolitionGlobal,
+            WeekendOvernightCleaning,
         )
 
         val json = JsonFormat.encodeToString(alerts)
@@ -217,15 +227,15 @@ class GithubAlertsTest {
                 days = DayOfWeek.entries,
                 start = LocalTime(0, 0),
                 end = LocalTime(5, 0),
-                from = LocalDate(2025, APRIL, 22),
-                to = LocalDate(2025, DECEMBER, 31),
+                from = LocalDate(2025, OCTOBER, 14),
+                to = LocalDate(2026, DECEMBER, 31),
             ),
             displaySchedule = Schedule.repeatingDaily(
                 days = DayOfWeek.entries,
                 start = LocalTime(22, 0),
                 end = LocalTime(5, 0),
-                from = LocalDate(2025, APRIL, 21),
-                to = LocalDate(2025, DECEMBER, 31),
+                from = LocalDate(2025, OCTOBER, 13),
+                to = LocalDate(2026, DECEMBER, 31),
             ),
             hiddenTrainsFilter = TrainFilter.all(),
             message = AlertText(
@@ -238,20 +248,20 @@ class GithubAlertsTest {
             level = "WARN"
         )
 
-        val EasterWeekendOvernightCleaning = Alert(
+        val WeekendOvernightCleaning = Alert(
             stations = listOf(NinthStreet, TwentyThirdStreet),
             hideTrainsSchedule = Schedule(),
             displaySchedule = Schedule.repeatingDaily(
-                from = LocalDate(2025, APRIL, 18),
-                to = LocalDate(2025, APRIL, 21),
+                from = LocalDate(2025, OCTOBER, 10),
+                to = LocalDate(2025, OCTOBER, 12),
                 days = listOf(FRIDAY, SATURDAY, SUNDAY),
                 start = LocalTime(22, 0),
                 end = LocalTime(5, 0),
             ),
             hiddenTrainsFilter = TrainFilter(),
             message = AlertText(
-                en = "9 St. & 23 St. stations will remain open overnight during Easter Weekend",
-                es = "Las estaciones de 9 St. y 23 St. permanecerán abiertas durante la noche durante el fin de semana de la Pascua"
+                en = "9 St. & 23 St. stations will remain open overnight this weekend",
+                es = "Las estaciones de 9 St. y 23 St. permanecerán abiertas durante la noche este fin de semana"
             ),
             url = AlertText(
                 en = "https://www.panynj.gov/path/en/schedules-maps/weekend-schedules.html"
@@ -267,7 +277,7 @@ class GithubAlertsTest {
                 start = LocalTime(22, 0),
                 end = LocalTime(7, 0),
                 from = LocalDate(2024, FEBRUARY, 25),
-                to = LocalDate(2025, DECEMBER, 31),
+                to = LocalDate(2026, DECEMBER, 31),
             ),
             hiddenTrainsFilter = TrainFilter(),
             message = AlertText(
@@ -277,6 +287,69 @@ class GithubAlertsTest {
                 en = "https://www.panynj.gov/path/en/planned-service-changes.html",
             ),
             level = "INFO",
+        )
+
+        val ConrailDemolition1 = Alert(
+            stations = listOf(
+                Newark,
+                Harrison,
+            ),
+            hideTrainsSchedule = Schedule.repeatingWeekly(
+                startDay = SATURDAY,
+                startTime = LocalTime(0, 0),
+                endDay = MONDAY,
+                endTime = LocalTime(5, 0),
+                from = LocalDate(2025, OCTOBER, 3),
+                to = LocalDate(2025, OCTOBER, 6),
+            ),
+            hiddenTrainsFilter = TrainFilter.headSigns("World Trade Center"),
+            displaySchedule = Schedule.repeatingDaily(
+                days = listOf(SATURDAY, SUNDAY),
+                start = LocalTime(0, 0),
+                end = LocalTime(5, 0),
+                from = LocalDate(2025, OCTOBER, 3),
+                to = LocalDate(2025, OCTOBER, 6),
+            ),
+            message = AlertText(
+                en = "No service between Harrison and Journal Square. Shuttle buses are running between HAR-JSQ and NWK-JSQ.",
+                es = "No hay servicio entre Harrison y Journal Square. Los autobuses están circulando entre HAR-JSQ y NWK-JSQ."
+            ),
+            url = AlertText(
+                en = "https://www.panynj.gov/path/en/schedules-maps.html"
+            ),
+            level = "INFO"
+        )
+
+        val ConrailDemolition2 = ConrailDemolition1.copy(
+            stations = listOf(
+                JournalSquare,
+                GroveStreet,
+                ExchangePlace,
+                WorldTradeCenter,
+            ).map { it.pathApiName },
+            hiddenTrainsFilter = TrainFilter.headSigns("Newark"),
+        )
+
+        val ConrailDemolitionGlobal = Alert(
+            stations = ConrailDemolition1.stations + ConrailDemolition2.stations,
+            isGlobal = true,
+            hideTrainsSchedule = Schedule(),
+            hiddenTrainsFilter = TrainFilter(),
+            displaySchedule = Schedule.repeatingDaily(
+                days = listOf(FRIDAY, SATURDAY),
+                start = LocalTime(15, 0),
+                end = LocalTime(5, 0),
+                from = LocalDate(2025, OCTOBER, 3),
+                to = LocalDate(2025, OCTOBER, 6),
+            ),
+            message = AlertText(
+                en = "No service between Harrison and Journal Square this weekend, starting at midnight Friday night",
+                es = "No hay servicio entre Harrison y Journal Square este fin de semana, a partir de la medianoche de la noche del viernes."
+            ),
+            url = AlertText(
+                en = "https://www.panynj.gov/path/en/schedules-maps.html"
+            ),
+            level = "INFO"
         )
     }
 }
