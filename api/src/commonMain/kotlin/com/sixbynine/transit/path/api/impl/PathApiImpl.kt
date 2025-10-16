@@ -1,20 +1,29 @@
-package com.sixbynine.transit.path.api.impl
+package com.desaiwang.transit.path.api.impl
 
-import com.sixbynine.transit.path.api.DepartingTrain
-import com.sixbynine.transit.path.api.PathApi
-import com.sixbynine.transit.path.api.State.NewJersey
-import com.sixbynine.transit.path.api.State.NewYork
-import com.sixbynine.transit.path.api.UpcomingDepartures
-import com.sixbynine.transit.path.api.path.PathRepository
-import com.sixbynine.transit.path.api.path.PathRepository.PathServiceResults
-import com.sixbynine.transit.path.model.ColorWrapper
-import com.sixbynine.transit.path.model.Colors
-import com.sixbynine.transit.path.util.FetchWithPrevious
-import com.sixbynine.transit.path.util.Staleness
-import com.sixbynine.transit.path.util.map
+import com.desaiwang.transit.path.api.DepartingTrain
+import com.desaiwang.transit.path.api.PathApi
+import com.desaiwang.transit.path.api.State.NewJersey
+import com.desaiwang.transit.path.api.State.NewYork
+import com.desaiwang.transit.path.api.UpcomingDepartures
+import com.desaiwang.transit.path.api.path.PathRepository
+import com.desaiwang.transit.path.api.path.PathRepository.PathServiceResults
+import com.desaiwang.transit.path.model.ColorWrapper
+import com.desaiwang.transit.path.model.Colors
+import com.desaiwang.transit.path.util.FetchWithPrevious
+import com.desaiwang.transit.path.util.Staleness
+import com.desaiwang.transit.path.util.map
 import kotlinx.datetime.Instant
 import kotlin.time.Duration.Companion.seconds
 
+/**
+ * Main implementation of the PATH train API that fetches real-time train departures.
+ * 
+ * This class:
+ * 1. Fetches raw train data from the PATH API
+ * 2. Processes arrival times and train statuses
+ * 3. Computes train lines based on colors and destinations
+ * 4. Handles train delays and direction information
+ */
 internal class PathApiImpl : PathApi {
 
     override fun getUpcomingDepartures(

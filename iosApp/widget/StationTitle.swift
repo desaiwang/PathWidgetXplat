@@ -11,12 +11,14 @@ import ComposeApp
 
 struct StationTitle: View {
     let title: String
+    let destinationStation: String?
     let width: CGFloat
     let maxHeight: CGFloat
+    let textColor: Color
     
     var body: some View {
-        HStack(spacing: 0) {
-            Spacer()
+        VStack(alignment: .leading, spacing: 0) {
+            // Left side: Station name
             Text(
                 WidgetDataFormatter().formatHeadSign(
                     title: title,
@@ -25,16 +27,30 @@ struct StationTitle: View {
                         let textWidth = measureTextWidth(
                             maxSize: CGSize(width: width, height: maxHeight),
                             text: $0,
-                            font: UIFont.systemFont(ofSize: 14, weight: .bold)
+                            font: UIFont.arimaStyleMedium(size: 14)
                         )
                         return (textWidth <= titleSpace).toKotlinBoolean()
                     }
                 )
             )
-            .multilineTextAlignment(.center)
-            .font(Font.system(size: 14))
-            .fontWeight(.bold)
-            Spacer()
+            .font(Font.arimaStyleMedium(size: 14))
+            .foregroundColor(textColor)
+            .italic()
+            
+            // destination station
+            if let destination = destinationStation {
+                HStack(spacing: 2) {
+                    Image(systemName: "arrow.right")
+                        .font(.system(size: 12))
+                        .foregroundColor(textColor)
+                    Text(destination)
+                        .font(Font.arimaStyle(size: 14))
+                        .italic()
+                        .foregroundColor(textColor)
+                }
+            }
         }
+        .padding(.leading, 4)
+        .padding(.top, 2)
     }
 }

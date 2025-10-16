@@ -1,25 +1,25 @@
-package com.sixbynine.transit.path.api.impl
+package com.desaiwang.transit.path.api.impl
 
-import com.sixbynine.transit.path.api.DepartingTrain
-import com.sixbynine.transit.path.api.Line
-import com.sixbynine.transit.path.api.PathApi
-import com.sixbynine.transit.path.api.State
-import com.sixbynine.transit.path.api.State.NewJersey
-import com.sixbynine.transit.path.api.State.NewYork
-import com.sixbynine.transit.path.api.Station
-import com.sixbynine.transit.path.api.Stations
-import com.sixbynine.transit.path.api.UpcomingDepartures
-import com.sixbynine.transit.path.api.schedule.GithubScheduleRepository
-import com.sixbynine.transit.path.api.schedule.ScheduleAndOverride
-import com.sixbynine.transit.path.model.ColorWrapper
-import com.sixbynine.transit.path.model.Colors
-import com.sixbynine.transit.path.schedule.ScheduleTiming
-import com.sixbynine.transit.path.schedule.Schedules
-import com.sixbynine.transit.path.time.NewYorkTimeZone
-import com.sixbynine.transit.path.util.FetchWithPrevious
-import com.sixbynine.transit.path.util.Staleness
-import com.sixbynine.transit.path.util.map
-import com.sixbynine.transit.path.util.orElse
+import com.desaiwang.transit.path.api.DepartingTrain
+import com.desaiwang.transit.path.api.Line
+import com.desaiwang.transit.path.api.PathApi
+import com.desaiwang.transit.path.api.State
+import com.desaiwang.transit.path.api.State.NewJersey
+import com.desaiwang.transit.path.api.State.NewYork
+import com.desaiwang.transit.path.api.Station
+import com.desaiwang.transit.path.api.Stations
+import com.desaiwang.transit.path.api.UpcomingDepartures
+import com.desaiwang.transit.path.api.schedule.GithubScheduleRepository
+import com.desaiwang.transit.path.api.schedule.ScheduleAndOverride
+import com.desaiwang.transit.path.model.ColorWrapper
+import com.desaiwang.transit.path.model.Colors
+import com.desaiwang.transit.path.schedule.ScheduleTiming
+import com.desaiwang.transit.path.schedule.Schedules
+import com.desaiwang.transit.path.time.NewYorkTimeZone
+import com.desaiwang.transit.path.util.FetchWithPrevious
+import com.desaiwang.transit.path.util.Staleness
+import com.desaiwang.transit.path.util.map
+import com.desaiwang.transit.path.util.orElse
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
@@ -31,6 +31,16 @@ import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 import kotlin.time.Duration.Companion.minutes
 
+/**
+ * Implementation of PATH API that provides train schedules based on timetables.
+ * 
+ * This class:
+ * 1. Loads schedule data from GitHub repository
+ * 2. Handles schedule overrides for service changes
+ * 3. Computes arrival times based on schedules
+ * 4. Supports different service patterns for weekdays/weekends
+ * 5. Handles schedule validity periods and transitions
+ */
 class SchedulePathApi : PathApi {
     override fun getUpcomingDepartures(
         now: Instant,

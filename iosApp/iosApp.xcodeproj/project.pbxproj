@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		091BEDE52E6FCC300034EE6E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 091BEDE42E6FCC300034EE6E /* FirebaseAnalytics */; };
+		091BEDE72E6FCC440034EE6E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 091BEDE62E6FCC440034EE6E /* FirebaseAnalytics */; };
+		09A7BDAB2E84EB60006DAC5D /* SeasonalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7BDAA2E84EB60006DAC5D /* SeasonalUtils.swift */; };
+		09BC03732E7A59280067FC7D /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC03722E7A59280067FC7D /* FontExtensions.swift */; };
+		09E0CAB72E712B0400FAB725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E0CAB62E712B0400FAB725 /* Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		AA34DA372BB0F7F600DB50A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA34DA362BB0F7F600DB50A0 /* Assets.xcassets */; };
@@ -74,6 +79,9 @@
 
 /* Begin PBXFileReference section */
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09A7BDAA2E84EB60006DAC5D /* SeasonalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalUtils.swift; sourceTree = "<group>"; };
+		09BC03722E7A59280067FC7D /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
+		09E0CAB62E712B0400FAB725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* Departures for PATH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Departures for PATH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 			files = (
 				AAB47C1B2B15A46400079022 /* SwiftUI.framework in Frameworks */,
 				AAB47C192B15A46400079022 /* WidgetKit.framework in Frameworks */,
+				091BEDE72E6FCC440034EE6E /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +137,7 @@
 				AAC0B8282B7278DD00DC7552 /* FirebaseCrashlytics in Frameworks */,
 				AAC0B8272B7278DD00DC7552 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				AAD500122B72783400D6F505 /* FirebasePerformance in Frameworks */,
+				091BEDE52E6FCC300034EE6E /* FirebaseAnalytics in Frameworks */,
 				AAD500102B72782000D6F505 /* FirebaseAnalyticsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +204,9 @@
 		AAB47C1C2B15A46400079022 /* widget */ = {
 			isa = PBXGroup;
 			children = (
+				09A7BDAA2E84EB60006DAC5D /* SeasonalUtils.swift */,
+				09BC03722E7A59280067FC7D /* FontExtensions.swift */,
+				09E0CAB62E712B0400FAB725 /* Assets.xcassets */,
 				AAB47C1D2B15A46400079022 /* widgetBundle.swift */,
 				AAB47C1F2B15A46400079022 /* widget.swift */,
 				AAB47C252B15A46500079022 /* Info.plist */,
@@ -250,6 +263,7 @@
 				AAD5000A2B72764A00D6F505 /* FirebaseCrashlytics */,
 				AAD5000F2B72782000D6F505 /* FirebaseAnalyticsSwift */,
 				AAD500112B72783400D6F505 /* FirebasePerformance */,
+				091BEDE42E6FCC300034EE6E /* FirebaseAnalytics */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* Departures for PATH.app */;
@@ -279,8 +293,9 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -332,6 +347,7 @@
 			files = (
 				AAB47C482B1660D800079022 /* Localizable.xcstrings in Resources */,
 				AA34DA382BB0F7F600DB50A0 /* Assets.xcassets in Resources */,
+				09E0CAB72E712B0400FAB725 /* Assets.xcassets in Resources */,
 				AAD500072B7275F400D6F505 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,10 +368,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)/composeApp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"YES\" = \"$OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED\" ]; then\n  echo \"Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \\\"YES\\\"\"\n  exit 0\nfi\ncd \"$SRCROOT/..\"\n./gradlew :composeApp:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "\"$SRCROOT/build-kotlin-framework.sh\"";
 		};
 		AAD5000D2B72774E00D6F505 /* Upload DYSM to Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -420,6 +437,7 @@
 			files = (
 				AAB47C3E2B15ABB800079022 /* EmptyDepartureBoardView.swift in Sources */,
 				AAD56F272D0BF449001EE80B /* WidgetReloader.swift in Sources */,
+				09BC03732E7A59280067FC7D /* FontExtensions.swift in Sources */,
 				AA9B5F862C233A6900251F59 /* StationTitle.swift in Sources */,
 				AAB47C442B15AD4000079022 /* FetchResult.swift in Sources */,
 				AA9B5F842C23383800251F59 /* ColorCircle.swift in Sources */,
@@ -435,6 +453,7 @@
 				AAB47C1E2B15A46400079022 /* widgetBundle.swift in Sources */,
 				AAB47C202B15A46400079022 /* widget.swift in Sources */,
 				AA9B5F7E2C1F83C100251F59 /* ViewExtensions.swift in Sources */,
+				09A7BDAB2E84EB60006DAC5D /* SeasonalUtils.swift in Sources */,
 				AA9B5F882C23785800251F59 /* EntryView.swift in Sources */,
 				AAB47C402B15AD2300079022 /* RefreshIntent.swift in Sources */,
 			);
@@ -456,6 +475,7 @@
 			baseConfigurationReference = AB3632DC29227652001CCB65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -487,6 +507,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -503,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -518,6 +539,7 @@
 			baseConfigurationReference = AB3632DC29227652001CCB65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -549,6 +571,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -559,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -572,21 +595,20 @@
 		7555FFA6242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUNDLE_ID = com.sixbynine.transit.path;
+				BUNDLE_ID = com.desaiwang.transit.path;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-				DEVELOPMENT_TEAM = VT9SJH7UKQ;
+				DEVELOPMENT_TEAM = N432DR3PWD;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,32 +620,35 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}${TEAM_ID}";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.sixbynine.transit.path;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.desaiwang.transit.path;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		7555FFA7242A565B00829871 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUNDLE_ID = com.sixbynine.transit.path;
+				BUNDLE_ID = com.desaiwang.transit.path;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-				DEVELOPMENT_TEAM = VT9SJH7UKQ;
+				DEVELOPMENT_TEAM = N432DR3PWD;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,11 +660,15 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}${TEAM_ID}";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.sixbynine.transit.path;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.desaiwang.transit.path;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -655,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = VT9SJH7UKQ;
+				DEVELOPMENT_TEAM = N432DR3PWD;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
@@ -665,7 +694,7 @@
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 orgName. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,13 +707,17 @@
 					"-framework",
 					composeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sixbynine.transit.path.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.desaiwang.transit.path.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -699,7 +732,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VT9SJH7UKQ;
+				DEVELOPMENT_TEAM = N432DR3PWD;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
@@ -709,7 +742,7 @@
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 orgName. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -722,12 +755,16 @@
 					"-framework",
 					composeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sixbynine.transit.path.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.desaiwang.transit.path.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -775,6 +812,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		091BEDE42E6FCC300034EE6E /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAD500082B72764A00D6F505 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		091BEDE62E6FCC440034EE6E /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAD500082B72764A00D6F505 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		AAD500092B72764A00D6F505 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAD500082B72764A00D6F505 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

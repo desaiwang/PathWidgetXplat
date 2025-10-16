@@ -85,22 +85,30 @@ extension Filter {
 
 extension WidgetDataFetcher {
     func fetchWidgetDataAsync(
-        includeClosestStation: Bool,
-        stationLimit: Int32,
-        stations: [Station],
-        lines: [Line],
+        originStation: StationChoice,
+        destinationStation: StationChoice,
         filter: TrainFilter,
-        sort: StationSort
+        sort: StationSort,
+        lines: [Line]
     ) async -> FetchResult {
+        // Convert station choices to actual stations
+        let origin = originStation.toStation()
+        let destination = destinationStation.toStation()
+        
+        // If either station is nil (closest) or both stations are the same, return error
+        guard let originStn = origin, let destStn = destination, originStn != destStn else {
+            return FetchResult(data: nil, hadInternet: true, hasError: true, hasPathError: false)
+        }
+        
         do {
             return try await withCheckedThrowingContinuation { continuation in
                 fetchWidgetData(
-                    stationLimit: stationLimit,
-                    stations: stations,
+                    stationLimit: 1, // We only want to show one station
+                    stations: [originStn, destStn], // Only show origin station
                     lines: lines,
                     sort: sort,
                     filter: filter,
-                    includeClosestStation: includeClosestStation,
+                    includeClosestStation: false, // We're using specific stations
                     staleness: widgetFetchStaleness(force: false),
                     onSuccess: { data in
                         continuation.resume(returning: FetchResult(data: data, hadInternet: true, hasError: false, hasPathError: false))
